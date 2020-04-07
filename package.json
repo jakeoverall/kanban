@@ -9,7 +9,7 @@
     "dev": "node index.js",
     "setup": "npm install",
     "serve": "npm run serve --prefix ./clientsrc",
-    "build": "npm install --prefix ./clientsrc && npm run build --prefix ./clientsrc"
+    "build": "npm install @vue/cli@latest && npm install --prefix ./clientsrc && npm run build --prefix ./clientsrc"
   },
   "author": "Codeworks",
   "license": "ISC",
