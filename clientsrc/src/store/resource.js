@@ -1,7 +1,7 @@
 import { LightPath } from "@bcwdev/quickvue";
 export const baseURL = window.location.host.includes("localhost")
   ? "http://localhost:3000"
-  : "/";
+  : "";
 let timeout = baseURL.includes("localhost") ? 99999999999999 : 8000;
 export const $resource = new LightPath({
   baseURL,
