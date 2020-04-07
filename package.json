@@ -9,7 +9,7 @@
     "dev": "node index.js",
     "setup": "npm install",
     "serve": "npm run serve --prefix ./clientsrc",
-    "build": "npm install -g @vue/cli@latest &&  npm run build --prefix ./clientsrc",
+    "build": "npm run build --prefix ./clientsrc",
     "postinstall": "cd clientsrc && npm install"
   },
   "author": "Codeworks",
@@ -29,5 +29,8 @@
   "engines": {
     "node": "^12.0.0",
     "npm": "^6.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli": "^4.3.0"
   }
 }
