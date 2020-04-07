@@ -10,4 +10,13 @@ class DbContext {
   Boards = mongoose.model("Board", BoardSchema);
 }
 
+
+// Hooks
+
+// BoardSchema.post("remove", function (doc, next) {
+//   dbContext.Values.updateMany({ boardId: doc.id }, { $set: { deleted: true } })
+//   next()
+// })
+
+
 export const dbContext = new DbContext();
