@@ -10,7 +10,7 @@
     "setup": "npm install",
     "serve": "npm run serve --prefix ./clientsrc",
     "build": "npm run build --prefix ./clientsrc",
-    "postinstall": "cd clientsrc && npm install"
+    "postinstall": "cd clientsrc && npm i @vue/cli@latest && npm install"
   },
   "author": "Codeworks",
   "license": "ISC",
@@ -31,6 +31,10 @@
     "npm": "^6.14.4"
   },
   "devDependencies": {
-    "@vue/cli": "^4.3.0"
+    "@vue/cli": "^4.3.0",
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-plugin-vuex": "~4.2.0",
+    "@vue/cli-service": "~4.2.0"
   }
 }
