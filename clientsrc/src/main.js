@@ -22,7 +22,7 @@ Vue.use(Auth0Plugin, {
   }
 });
 
-console.log("show the config", vue.config)
+console.log("show the config", vue.config, "this is a test")
 
 
 Vue.config.productionTip = false;
