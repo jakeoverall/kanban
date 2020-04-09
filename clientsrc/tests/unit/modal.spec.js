@@ -27,21 +27,23 @@ describe('Modal.vue', () => {
 
   })
   // it("the modal can be opened when setting prop open", () => {
-
+  //   let props = {
+  //     open: true
+  //   }
   //   const wrapper = shallowMount(modal, {
   //     propsData: {
-  //       open: true
+  //       ...props
   //     }
   //   })
   //   wrapper.vm.$on("close", () => {
-  //     wrapper.setProps({
-  //       open: false
-  //     })
+  //     props.open = false
   //   });
 
   //   wrapper.vm.$refs.modalDialog
   //   expect(wrapper.vm.$refs.modalDialog).toBeTruthy()
   //   wrapper.vm.$emit("close")
-  //   expect(wrapper.vm.$refs.modalDialog).toBeFalsy()
+  //   wrapper.vm.$nextTick(() => {
+  //     expect(wrapper.vm.$refs.modalDialog).toBeFalsy()
+  //   })
   // })
 })
