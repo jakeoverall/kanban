@@ -36,6 +36,7 @@ class SocketService {
    */
   JoinRoom(socket, room) {
     socket.join(room);
+    socket.emit("JOINED", { message: "You are now in room" + room })
   }
   /**
    * @param {SocketIO.Socket} socket
@@ -43,6 +44,7 @@ class SocketService {
    */
   LeaveRoom(socket, room) {
     socket.leave(room);
+    socket.emit("LEFT", { message: "You are no longer in room" + room })
   }
 
   /**
@@ -54,18 +56,25 @@ class SocketService {
   messageUser(userId, eventName, payload) {
     try {
       this.io.to(userId).emit(eventName, payload);
-    } catch (e) {}
+    } catch (e) { }
   }
 
   messageRoom(room, eventName, payload) {
     this.io.to(room).emit(eventName, payload);
   }
 
+
+  TESTING(socket, data) {
+    console.log(data)
+  }
+
+
+
   _onConnect() {
     return socket => {
       this._newConnection(socket);
 
-      //STUB Register listeners
+      // STUB Register listeners
 
       socket.on("dispatch", this._onDispatch(socket));
       socket.on("disconnect", this._onDisconnect(socket));
@@ -79,7 +88,7 @@ class SocketService {
           return;
         }
         this.io.emit("UserDisconnected", socket.user.id);
-      } catch (e) {}
+      } catch (e) { }
     };
   }
 
@@ -88,10 +97,10 @@ class SocketService {
       try {
         var action = this[payload.action];
         if (!action || typeof action != "function") {
-          return socket.emit("error", "Unknown Action");
+          return socket.emit("socketError", { message: "Unknown Action" });
         }
         action.call(this, socket, payload.data);
-      } catch (e) {}
+      } catch (e) { }
     };
   }
 

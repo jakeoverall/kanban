@@ -4,6 +4,7 @@ import { $resource } from "./resource";
 export default {
   state: {
     boards: [],
+    lists: [],
     board: new Board()
   },
   mutations: {
@@ -15,6 +16,9 @@ export default {
     },
     addBoard(state, board) {
       state.boards.push(new Board(board));
+    },
+    addList(state, list) {
+      state.lists.push(list)
     }
   },
   actions: {
@@ -31,6 +35,9 @@ export default {
       // REVIEW when creating a board this sets it as the active board
       commit("setBoard", board);
       commit("addBoard", board);
+    },
+    async addList({ commit }, listData) {
+      await $resource.post("api/lists", listData)
     }
   }
 };

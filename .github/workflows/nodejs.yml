@@ -27,4 +27,5 @@ jobs:
     - name: NPM or Yarn install with caching
       uses: bahmutov/npm-install@v1.1.0
     - run: npm install @vue/cli@latest
+    - run: npm run test
     - run: npm run build --if-present

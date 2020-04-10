@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { $resource } from "./resource";
 import boardsStore from "./BoardsStore";
+import socketStore from "./SocketStore";
 
 Vue.use(Vuex);
 
@@ -17,6 +18,7 @@ export default new Vuex.Store({
   actions: {
     async initUserData({ dispatch }) {
       dispatch("getProfile");
+      dispatch("initializeSocket")
       dispatch("getBoards");
     },
     async getProfile({ commit }) {
@@ -31,6 +33,7 @@ export default new Vuex.Store({
 
   },
   modules: {
-    boardsStore
+    boardsStore,
+    socketStore
   }
 });
